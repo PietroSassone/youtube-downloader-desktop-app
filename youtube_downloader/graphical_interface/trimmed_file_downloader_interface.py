@@ -1,8 +1,9 @@
 from base_gui import BaseGui
 
-class SettingsInterface(BaseGui):
-    def __init__(self, graphical_interface):
-        super().__init__(graphical_interface)
+
+class TrimmedFileDownloadsGui(BaseGui):
+    def __init__(self, parent_frame, main_frame):
+        super().__init__(parent_frame, main_frame)
         self._interface_title = 'Settings'
         self.add_element_to_interface(300, 300, self.create_explanation_label())
         self.add_element_to_interface(150, 400, self.create_start_label())

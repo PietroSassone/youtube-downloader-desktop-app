@@ -1,17 +1,18 @@
 from tkinter import Canvas, Label, Entry, Button, Frame, GROOVE, CENTER, PhotoImage
 
 
-class BaseGui:
+class BaseGui(Frame):
     _base_gui_width = 600
     _base_gui_height = 800
     _text_color = 'black'
     _font = ('Kozuka Gothic Pro H', 20)
 
-    def __init__(self, graphical_interface):
-        self._graphical_interface = graphical_interface
+    def __init__(self, parent_frame, main_frame):
+        Frame.__init__(self, parent_frame)
         self._interface_title = None
+        self._controller = main_frame
 
-        self._frame = Frame(master=self._graphical_interface, relief=GROOVE)
+        self._frame = Frame(self, relief=GROOVE)
         self._frame.pack(fill='both', expand=True)
 
         self._canvas = Canvas(master=self._frame, width=self._base_gui_width, height=self._base_gui_height)
@@ -30,26 +31,25 @@ class BaseGui:
     def get_title(self):
         return self._interface_title
 
-    """     @property
-        def get_graphical_interface(self):
-            return self._graphical_interface """
+    def get_frame(self):
+        return self._frame
 
     def create_text_entry_widget(self, width):
-        return Entry(self._graphical_interface, width=width, font=self._font)
+        return Entry(self, width=width, font=self._font)
 
     def create_label(self, label_title, background_color = 'gold'):
-        return Label(self._graphical_interface, text=label_title, font=self._font, background=background_color)
+        return Label(self, text=label_title, font=self._font, background=background_color)
 
-    def create_button(self, button_title, button_function, button_color = 'red'):
+    def create_button(self, button_title, button_function, button_color = 'red', width = 10):
         return Button(
-            self._graphical_interface,
+            self,
             text=button_title,
             bg=button_color,
             padx='20',
             pady='5',
             font=self._font,
             fg=self._text_color,
-            width = 10,
+            width = width,
             height= 1,
             command=button_function
         )

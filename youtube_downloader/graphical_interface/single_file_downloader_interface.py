@@ -2,13 +2,14 @@ from base_gui import BaseGui
 import util.downlader as downloader
 
 
-class YoutubeDownloaderInterface(BaseGui):
+class SingleFileDownloadsGui(BaseGui):
     _interface_elements_x_position = 300
 
-    def __init__(self, graphical_interface):
-        super().__init__(graphical_interface)
+    def __init__(self, parent_frame, main_frame):
+        super().__init__(parent_frame, main_frame)
         self._interface_title = 'Youtube Downloader 1.0.5'
-        self._graphical_interface.title(self._interface_title)
+        
+        #self.title(self._interface_title)
 
         self._download_path_input_section = self.create_download_path_input_section()
         self._link_input_section = self.create_youtube_link_input_section()
