@@ -1,4 +1,5 @@
-from graphical_interface.main_frame import *
+from graphical_interface.main_frame import MainFrame
+
 
 class Application:
     def main():

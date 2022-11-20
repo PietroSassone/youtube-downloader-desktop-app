@@ -3,11 +3,14 @@ import file_util
 
 
 PRESENTATION_TIMESTAMPS = "PTS-STARTPTS"
+MP4 = 'MP4'
+MP3 = 'MP3'
+ALLOWED_MEDIA_TYPES = [MP3, MP4]
 
 @staticmethod
 def trim_media(input_file, start_seconds, end_seconds, mediatype):
-    if mediatype not in ['mp3', 'mp4']:
-        raise TypeError("Only trimming mp3 and mp4 is supported. Please check the input file.")
+    if mediatype not in ALLOWED_MEDIA_TYPES:
+        raise TypeError(f"Only trimming {ALLOWED_MEDIA_TYPES} extensions is supported. Please check the input file.")
 
     try:
         trimmed_file_result = f'{input_file}_trimmed_{start_seconds}_{end_seconds}.{mediatype}'
@@ -21,7 +24,7 @@ def trim_media(input_file, start_seconds, end_seconds, mediatype):
                 .filter_("asetpts", PRESENTATION_TIMESTAMPS)
             )
         
-        if 'mp4' == mediatype:
+        if MP4 == mediatype:
             trimmed_video = input_stream.trim(start=start_seconds, end=end_seconds).setpts(PRESENTATION_TIMESTAMPS)
             trimmed_file_input = ffmpeg.concat(trimmed_video, trimmed_audio, v=1, a=1)
         
