@@ -20,22 +20,22 @@ def download_single_file(youtube_link, download_path, mediatype, trim_start, tri
         match mediatype:
             case 'video':
                 mp4_video = YouTube(youtube_link).streams.get_highest_resolution().download(download_path)
+                   
+                result_mp4_file = trim_if_needed(trim_start, trim_end, mp4_video, media_trimmer.MP4)
                 
-                if trim_start and trim_end:
-                    print(f'trimming at {trim_start} and {trim_end}')
-                    mp4_video = media_trimmer.trim_media(mp4_video, trim_start, trim_end, "mp4")
-                
-                VideoFileClip(mp4_video).close()
+                VideoFileClip(result_mp4_file).close()
         
             case 'mp3':
                 downloaded_file = YouTube(youtube_link).streams.filter(only_audio=True).first().download()
                 
-                new_mp3_file = file_util.create_new_mp3_from_file(downloaded_file)
-                if trim_start and trim_end:
-                    print(f'trimming at {trim_start} and {trim_end}')
-                    new_mp3_file = media_trimmer.trim_media(new_mp3_file, trim_start, trim_end, "mp3")
+                result_mp3_file = trim_if_needed(
+                                    trim_start, 
+                                    trim_end, 
+                                    file_util.create_new_mp3_from_file(downloaded_file), 
+                                    media_trimmer.MP3
+                                  )
 
-                file_util.move_file(new_mp3_file, download_path)
+                file_util.move_file(result_mp3_file, download_path)
             case _:
                 download_status_message = 'Unsopported media type. Please choose video or MP3 format.'
 
@@ -45,6 +45,16 @@ def download_single_file(youtube_link, download_path, mediatype, trim_start, tri
         print(str(e))
 
     return download_status_message
+
+@staticmethod
+def trim_if_needed(trim_start, trim_end, input_file, mediatype):
+    result_file = input_file
+
+    if trim_start and trim_end:
+        print(f'Trimming media from {trim_start} to {trim_end} seconds.')
+        result_file = media_trimmer.trim_media(input_file, trim_start, trim_end, mediatype)
+        file_util.delete_file_if_exists(input_file)
+    return result_file
 
 @staticmethod
 def download_playlist(youtube_link, download_path, mediatype):

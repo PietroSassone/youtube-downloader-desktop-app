@@ -3,8 +3,8 @@ import file_util
 
 
 PRESENTATION_TIMESTAMPS = "PTS-STARTPTS"
-MP4 = 'MP4'
-MP3 = 'MP3'
+MP4 = 'mp4'
+MP3 = 'mp3'
 ALLOWED_MEDIA_TYPES = [MP3, MP4]
 
 @staticmethod

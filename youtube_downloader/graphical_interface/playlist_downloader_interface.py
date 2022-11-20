@@ -50,4 +50,5 @@ class PlayListDownloaderGui(DownloaderGuiCommonCore):
         return self.create_menu_button('Download playlist as mp3', self.download_playlist_audios)
 
     def create_warning_label(self):
-        return self.create_label('Warning: please provide a playlist link.\nIt won\'t work with single video.', 'red')
+        return self.create_label('Warning: please provide a playlist link.\nIt won\'t work with single video.\nOnly works for public YouTube playlists!', 'red')
+

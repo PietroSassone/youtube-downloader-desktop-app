@@ -15,3 +15,4 @@ class SingleFileDownloaderGui(DownloaderGuiCommonCore):
             [self.create_download_video_button(), self.create_download_mp3_button()]
         )
         
+        

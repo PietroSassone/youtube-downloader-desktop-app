@@ -36,7 +36,7 @@ class DownloaderGuiCommonCore(BaseGui):
 
         download_status_message = downloader.download_single_file(
             self._link_input_section[1].get(),
-            self._download_path_input_section[0].cget("text"),
+            self._download_path_input_section[0].cget('text'),
             mediatype,
             self._trim_start_seconds,
             self._trim_end_seconds
@@ -54,16 +54,16 @@ class DownloaderGuiCommonCore(BaseGui):
         self.download_single_file(self.MP3_MEDIA_TYPE)
 
     def create_status_label(self):
-        return self.create_label("Download Status: READY")
+        return self.create_label('Download Status: READY')
 
     def create_youtube_link_input_section(self):
-        return self.create_label("Enter download link: "), self.create_text_entry_widget(35)
+        return self.create_label('Enter download link: '), self.create_text_entry_widget(35)
 
     def create_download_path_input_section(self):
-        return self.create_label("Download directory: PLEASE CHOOSE!"), self.create_button("Set directory", self.set_download_path, 'red')
+        return self.create_label('Download directory: PLEASE CHOOSE!'), self.create_button('Set directory', self.set_download_path, 'red')
 
     def create_download_video_button(self):
-        return self.create_button("Download Video", self.download_video)
+        return self.create_button('Download Video', self.download_video)
 
     def create_download_mp3_button(self):
-        return self.create_button("Download MP3", self.download_mp3)
+        return self.create_button('Download MP3', self.download_mp3)
