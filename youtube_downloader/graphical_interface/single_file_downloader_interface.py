@@ -5,7 +5,9 @@ class SingleFileDownloaderGui(DownloaderGuiCommonCore):
 
     def __init__(self, parent_frame, controller):
         super().__init__(parent_frame, controller)
-        controller.title('Download single media files.')
+
+        self._interface_title = 'Download single media files.'
+        
         self.add_download_buttons()
 
     def add_download_buttons(self):
@@ -14,5 +16,3 @@ class SingleFileDownloaderGui(DownloaderGuiCommonCore):
             self.Y_COORDINATE_INCREASE_STEPS,
             [self.create_download_video_button(), self.create_download_mp3_button()]
         )
-        
-        

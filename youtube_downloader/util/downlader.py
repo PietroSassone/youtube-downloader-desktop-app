@@ -1,6 +1,5 @@
 from moviepy.editor import VideoFileClip
 from pytube import YouTube, Playlist
-from tkinter import filedialog
 import file_util
 import media_trimmer as media_trimmer
 
@@ -8,10 +7,6 @@ import media_trimmer as media_trimmer
 SUCCESS_MESSAGE = 'Download complete.\nStart another download or close the program.'
 FAILURE_MESSAGE = '''Download failed. Please try again.\nMaybe the file already exists?
                     \nAlso sake sure the you\'ve provided a valid download link & download path.'''
-
-@staticmethod
-def select_download_path(path_selector_label):
-    path_selector_label.config(text=filedialog.askdirectory())
 
 @staticmethod
 def download_single_file(youtube_link, download_path, mediatype, trim_start, trim_end):
@@ -69,4 +64,3 @@ def download_playlist(youtube_link, download_path, mediatype):
         print(str(e))
 
     return download_status_message
-  

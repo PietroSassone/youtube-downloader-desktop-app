@@ -8,12 +8,13 @@ class TrimmedFileDownloaderGui(DownloaderGuiCommonCore):
     TRIM_SECTION_Y_COORDINATE_STEPS = 50
     INPUT_FIELD_WIDTH = 5
     TRIM_INPUT_UPDATE_EVENT = '<FocusOut>'
-    FAILURE_MESSAGE = 'Failure'
     TRIM_INPUT_ERROR_MESSAGE = 'The end of the trimming can\'t be before the start.'
 
     def __init__(self, parent_frame, controller):
-        controller.title('Trim & download videos or audios.')
         super().__init__(parent_frame, controller)
+
+        self._interface_title = 'Trim & download videos or audios.'
+
         self._start_seconds_input = self.create_text_entry_widget(self.INPUT_FIELD_WIDTH)
         self._end_seconds_input = self.create_text_entry_widget(self.INPUT_FIELD_WIDTH)
 
@@ -80,5 +81,3 @@ class TrimmedFileDownloaderGui(DownloaderGuiCommonCore):
             self._end_seconds_input.delete(0, END)
 
         self._trim_end_seconds = end_seconds_input
-
-

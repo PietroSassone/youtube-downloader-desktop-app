@@ -10,10 +10,12 @@ class MainMenu(BaseGui):
     MENU_LABEL_COLOR = 'DarkOrange4'
     MENU_BUTTONS_Y_COORDINATE_START = 100
     MENU_BUTTONS_Y_COORDINATE_STEPS = 150
+    CLICK_EVENT = '<Button-1>'
 
     def __init__(self, parent, controller):
-        controller.title('Youtube Downloader Main Menu')
-        super().__init__(parent, controller) 
+        super().__init__(parent, controller)
+
+        self._interface_title = 'Youtube Downloader Main Menu'
     
         self.draw_screen(
             self.MENU_BUTTONS_Y_COORDINATE_START,
@@ -25,7 +27,7 @@ class MainMenu(BaseGui):
         )
     
     def create_menu_button(self, title, gui_class):
-        return self.create_button(title, self.create_button_lambda(gui_class), self.BUTTON_COLOR, self.BUTTON_WIDTH)
+        return self.create_button(title, self.create_button_display_gui_lambda(gui_class), self.BUTTON_COLOR, self.BUTTON_WIDTH)
 
     def create_trim_page_button(self):
         return self.create_menu_button('Trimmed single file downloader', TrimmedFileDownloaderGui)

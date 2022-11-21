@@ -34,4 +34,3 @@ def trim_media(input_file, start_seconds, end_seconds, mediatype):
         print(str(e))
 
     return trimmed_file_result
-    

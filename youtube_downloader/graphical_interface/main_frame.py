@@ -12,7 +12,7 @@ class MainFrame(Tk):
         Tk.__init__(self, *args, **kwargs)
 
         main_frame = Frame(self)
-        main_frame.pack(side="top", fill="both", expand=False)
+        main_frame.pack(side = "top", fill = "both", expand = False)
         self.resizable(False, False)
 
         self.interface_frames = self.initialize_all_frames(main_frame)
@@ -29,7 +29,7 @@ class MainFrame(Tk):
 
             all_frames[interface_class] = interface_frame
 
-            interface_frame.grid(row=0, column=0)
+            interface_frame.grid(row = 0, column = 0)
         return all_frames
 
     def add_back_to_menu_button(self, interface_class, interface_frame):
@@ -41,10 +41,13 @@ class MainFrame(Tk):
             )
 
     def display_interface(self, interface_class):
-        self.interface_frames[interface_class].tkraise()
+        interface_to_display = self.interface_frames[interface_class]
+        interface_to_display.set_title_to_display(interface_to_display.get_interface_title())
+        interface_to_display.tkraise()
+        
 
     def create_back_to_main_menu_button(self, interface):
-        return interface.create_button('Back to menu', interface.create_button_lambda(MainMenu), MainMenu.MENU_LABEL_COLOR)
+        return interface.create_button('Back to menu', interface.create_button_display_gui_lambda(MainMenu), MainMenu.MENU_LABEL_COLOR)
 
     def run_app_interface(self):
         self.mainloop()
