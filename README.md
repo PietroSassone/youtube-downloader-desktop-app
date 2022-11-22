@@ -1,6 +1,6 @@
 # Youtube Media Downloader Desktop App
 A lightweight desktop app written in Python to download videos & mp3 files from Youtube.
-Created with Python 3.11.0. on Windows.
+Created with Python 3.11.0. On Windows.
 
 
 **1. Features**
@@ -33,4 +33,4 @@ Some Python libraries the you will have to install to build & run the code:
 
 **3. Running the code**
 1. Open a terminal in the repo's "youtube_downloader" folder
-1. Run the app with ```python application.py```. the GUI should be visible.
+1. Run the app with ```python application.py```. The GUI should be visible.
