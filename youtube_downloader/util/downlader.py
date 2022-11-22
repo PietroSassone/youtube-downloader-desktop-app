@@ -1,4 +1,4 @@
-from moviepy.editor import VideoFileClip
+from moviepy.video.io.VideoFileClip import VideoFileClip
 from pytube import YouTube, Playlist
 import file_util
 import media_trimmer as media_trimmer
