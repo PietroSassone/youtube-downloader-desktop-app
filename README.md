@@ -1,6 +1,7 @@
 # Youtube Media Downloader Desktop App
 A lightweight desktop app written in Python to download videos & mp3 files from Youtube.
-Written in Python 3.11.0.
+Created with Python 3.11.0. on Windows.
+
 
 **1. Features**
 This app has a simple graphical interface.  
