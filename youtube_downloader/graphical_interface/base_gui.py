@@ -23,7 +23,7 @@ class BaseGui(Frame):
     
         self._canvas.pack(fill = 'both', expand = True)
 
-        self._background = PhotoImage(file = r'../youtube_downloader/graphical_interface/images/background.png')
+        self._background = PhotoImage(file = r'./graphical_interface/images/background.png')
 
         self._canvas.create_image(
             self.BASE_GUI_WIDTH/2,
