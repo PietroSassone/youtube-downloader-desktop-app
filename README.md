@@ -25,7 +25,7 @@ For each download type, the user has to specify the download directory & YouTube
 **2. Technologies used**
 * Python 3.11.0.
 
-Some Python libraries the you will have to install to build & run the code:
+Some Python libraries you will have to install to build & run the code:
 * TKinter, for GUI
 * MoviePy and PyTube for downloading from YouTube
 * FFmpeg and FFmpeg-Python for trimming media
