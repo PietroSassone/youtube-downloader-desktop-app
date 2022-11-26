@@ -45,7 +45,6 @@ class MainFrame(Tk):
         interface_to_display.set_title_to_display(interface_to_display.get_interface_title())
         interface_to_display.tkraise()
         
-
     def create_back_to_main_menu_button(self, interface):
         return interface.create_button('Back to menu', interface.create_button_display_gui_lambda(MainMenu), MainMenu.MENU_LABEL_COLOR)
 
