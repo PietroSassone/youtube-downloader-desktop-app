@@ -27,9 +27,9 @@ def trim_media(input_file, start_seconds, end_seconds, mediatype):
         if MP4 == mediatype:
             trimmed_video = input_stream.trim(start = start_seconds, end = end_seconds).setpts(PRESENTATION_TIMESTAMPS)
             trimmed_file_input = ffmpeg.concat(trimmed_video, trimmed_audio, v = 1, a = 1)
-        
-        ffmpeg.output(trimmed_file_input, trimmed_file_result, format=mediatype).run()
-        
+
+        ffmpeg.output(trimmed_file_input, trimmed_file_result, format = mediatype).run()
+
     except Exception as e:
         print(str(e))
 

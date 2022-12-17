@@ -16,7 +16,7 @@ class BaseGui(Frame):
         Frame.__init__(self, parent_frame)
         self._controller = controller
 
-        frame = Frame(self, relief=GROOVE)
+        frame = Frame(self, relief = GROOVE)
         frame.pack(fill = 'both', expand = True)
 
         self._canvas = Canvas(master = frame, width = self.BASE_GUI_WIDTH, height = self.BASE_GUI_HEIGHT)
