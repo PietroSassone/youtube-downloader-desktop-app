@@ -3,6 +3,7 @@ from trimmed_file_downloader_interface import TrimmedFileDownloaderGui
 from playlist_downloader_interface import PlayListDownloaderGui
 from single_file_downloader_interface import SingleFileDownloaderGui
 from main_menu import MainMenu
+from PIL import Image, ImageTk
 
 
 class MainFrame(Tk):
@@ -10,6 +11,8 @@ class MainFrame(Tk):
 
     def __init__(self, *args, **kwargs):
         Tk.__init__(self, *args, **kwargs)
+
+        self.wm_iconphoto(False, ImageTk.PhotoImage(Image.open(r'./graphical_interface/images/logo.png')))
 
         main_frame = Frame(self)
         main_frame.pack(side = "top", fill = "both", expand = False)
@@ -44,8 +47,9 @@ class MainFrame(Tk):
         interface_to_display = self.interface_frames[interface_class]
         interface_to_display.set_title_to_display(interface_to_display.get_interface_title())
         interface_to_display.tkraise()
-        
-    def create_back_to_main_menu_button(self, interface):
+
+    @staticmethod
+    def create_back_to_main_menu_button(interface):
         return interface.create_button('Back to menu', interface.create_button_display_gui_lambda(MainMenu), MainMenu.MENU_LABEL_COLOR)
 
     def run_app_interface(self):

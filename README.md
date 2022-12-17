@@ -34,3 +34,6 @@ Some Python libraries you will have to install to build & run the code:
 **3. Running the code**
 1. Open a terminal in the repo's "youtube_downloader" folder
 1. Run the app with ```python application.py```. The GUI should be visible.
+
+**4. Notes**
+1. The free logo image was taken from www.icons8.com.

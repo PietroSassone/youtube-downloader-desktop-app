@@ -31,7 +31,7 @@ class DownloaderGuiCommonCore(BaseGui):
                             )
 
     def set_download_path(self):
-        self._download_path_input_section[0].config(text=filedialog.askdirectory())
+        self._download_path_input_section[0].config(text = filedialog.askdirectory())
 
     def download_single_file(self, mediatype):
         download_path = self._download_path_input_section[0].cget('text')

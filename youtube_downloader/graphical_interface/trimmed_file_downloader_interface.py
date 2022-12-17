@@ -64,7 +64,7 @@ class TrimmedFileDownloaderGui(DownloaderGuiCommonCore):
         start_seconds_input = self.validate_input_is_integer(self._start_seconds_input)
         end_seconds_input = self._trim_end_seconds
         
-        if end_seconds_input is not None and start_seconds_input > end_seconds_input:
+        if end_seconds_input is not None and int(start_seconds_input) > int(end_seconds_input):
             self.comparison_error_popup()
             start_seconds_input = None
             self._start_seconds_input.delete(0, END)
@@ -75,7 +75,7 @@ class TrimmedFileDownloaderGui(DownloaderGuiCommonCore):
         end_seconds_input = self.validate_input_is_integer(self._end_seconds_input)
         start_seconds_input = self._trim_start_seconds
 
-        if start_seconds_input is not None and start_seconds_input > end_seconds_input:
+        if start_seconds_input is not None and int(start_seconds_input) > int(end_seconds_input):
             self.comparison_error_popup()
             end_seconds_input = None
             self._end_seconds_input.delete(0, END)
